@@ -2,6 +2,7 @@ package com.example.jimlu.mycontactapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -56,5 +57,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         Log.d("MyContactApp","DatabaseHelper: Contact insert Passed");
         return true;
+    }
+
+    public Cursor getAllData() {
+        Log.d("MyContactApp","DatabaseHelper: calling GetAllData");
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select + from" + TABLE_NAME, null);
+        return res;
     }
 }
