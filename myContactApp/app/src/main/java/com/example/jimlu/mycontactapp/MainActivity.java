@@ -1,5 +1,6 @@
 package com.example.jimlu.mycontactapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -49,7 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-            buffer.append(res.)
+            buffer.append("ID: " + res.getString(0));
+            buffer.append("\n");
+            buffer.append("name: " + res.getString(1));
+            buffer.append("\n");
+            buffer.append("number: " + res.getString(2));
+            buffer.append("\n");
+            buffer.append("address: " + res.getString(3));
+            buffer.append("\n");
         }
         Log.d("MyContactApp", "MainActivity: viewData: assembled stringbuffer");
         showMessage("Data",buffer.toString());
@@ -59,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MyContactApp", "MainActivity: showMessage: building alert dialog");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+    }
+    public static final String EXTRA_MESSAGE = "com.example.jimlu.mycontactapp.MESSAGE";
+    public void SearchDB(View view){
+        Log.d("MyContactApp", "MainActivity: launching SearchDB");
+        Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, editName.getText().toString());
+        startActivity(intent);
 
     }
 }
