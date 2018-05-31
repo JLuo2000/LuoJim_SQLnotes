@@ -55,14 +55,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d("MyContactApp","DatabaseHelper: Contact insert failed.");
             return false;
         }
+        else{
         Log.d("MyContactApp","DatabaseHelper: Contact insert Passed");
         return true;
+        }
     }
 
     public Cursor getAllData() {
         Log.d("MyContactApp","DatabaseHelper: calling GetAllData");
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select + from" + TABLE_NAME, null);
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         return res;
     }
 }

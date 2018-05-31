@@ -16,5 +16,10 @@ public class SearchActivity extends AppCompatActivity {
 
         //capture the layout's textView and set the string as the text
         android.widget.TextView textView = findViewById(R.id.textView4);
+        textView.setText(message);
+        android.widget.TextView numView = findViewById(R.id.textView5);
+        numView.setText(message);
+        android.widget.TextView addView = findViewById(R.id.textView6);
+        addView.setText(message);
     }
 }

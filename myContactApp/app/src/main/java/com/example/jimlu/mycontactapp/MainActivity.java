@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewData (View view){
+        Log.d("MyContactApp", "MainActivity: viewData: button pressed");
         Cursor res = myDb.getAllData();
         Log.d("MyContactApp", "MainActivity: viewData: received cursor");
         if(res.getCount() == 0){
